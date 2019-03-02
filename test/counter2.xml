@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <import package="package:flutter/material.dart"/>
+        <stream name="count" type="int" initialData="0"/>
+        <var name="sink" type="Sink<int>" />
+        <var name="callback" type="ValueCallback<int>" />
+    </data>
+
+    <Scaffold>
+        <appBar>
+            <AppBar>
+                <title>
+                    <Text _text="'Counter'"/>
+                </title>
+            </AppBar>
+        </appBar>
+        <body>
+            <Center>
+                <Column mainAxisAlignment="MainAxisAlignment.center">
+                    <Text _text="$count.toString()" style="TextStyle(color: Colors.red, fontSize: 16.0)" />
+                    <RaisedButton onPressed="() {sink.add($count + 1);}">
+                        <Text _text="'Use Sink(+1)'" />
+                    </RaisedButton>
+                    <RaisedButton onPressed="() {callback($count);}">
+                        <Text _text="&quot;Use Callback(*2)&quot;" />
+                    </RaisedButton>
+
+                </Column>
+            </Center>
+        </body>
+    </Scaffold>
+</layout>

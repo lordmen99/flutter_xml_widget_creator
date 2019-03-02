@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <import package="package:flutter/material.dart"/>
+        <import package="package:todo/entities.dart"/>
+        <var name="item" type="Todo" />
+        <var name="toggleSink" type="Sink<int>" />
+        <var name="delSink" type="Sink<int>" />
+    </data>
+    <Row>
+        <Checkbox value="item.done" onChanged="(v) {toggleSink.add(item.id);}" />
+        <Text _text="item.text" flex="1"/>
+        <FlatButton onPressed="() { delSink.add(item.id); }">
+            <Text _text="'DEL'" />
+        </FlatButton>
+    </Row>
+</layout>

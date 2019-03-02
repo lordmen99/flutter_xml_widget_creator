@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <import package="package:flutter/material.dart"/>
+        <import package="package:todo/entities.dart"/>
+        <stream name="list" type="List<Todo>" initialData="List<Todo>()"/>
+        <var name="addTodoSink" type="Sink<String>" />
+        <var name="itemBuilder" type="Widget Function(List<Todo>, int)" />
+        <var name="textController" type="TextEditingController" />
+    </data>
+
+    <Scaffold>
+        <appBar>
+            <AppBar>
+                <title>
+                    <Text _text='"Todo"'/>
+                </title>
+            </AppBar>
+        </appBar>
+        <body>
+            <Column padding="8">
+                <Row>
+                    <TextField flex="1" controller="textController" />
+                    <RaisedButton onPressed="() { addTodoSink.add(textController.text);textController.text=''; }">
+                        <Text _text='"Add"'/>
+                    </RaisedButton>
+                </Row>
+                <ListView.builder flex="1" itemBuilder="(ctx, idx) { return itemBuilder($list, idx);} " />
+            </Column>
+        </body>
+    </Scaffold>
+</layout>

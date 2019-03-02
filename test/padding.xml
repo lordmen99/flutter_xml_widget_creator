@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <import package="package:flutter/material.dart"/>
+    </data>
+
+    <Column>
+        <Text
+            _text="'A'"
+            padding="10"/>
+        <Text
+            _text="'B'"
+            padding="10 20"/>
+        <Text
+            _text="'C'"
+            padding="10 20 30"/>
+        <Text
+            _text="'D'"
+            padding="10 20 30 40"/>
+        <Text
+            _text="'E'"
+            padding="1.0 2.0 3.0 4.0"/>
+    </Column>
+</layout>

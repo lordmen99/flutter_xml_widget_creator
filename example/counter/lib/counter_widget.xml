@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <import package="package:flutter/material.dart"/>
+        <stream name="count" type="int" initialData="0"/>
+        <var name="sink" type="Sink<int>" />
+    </data>
+
+    <Center>
+        <Column mainAxisAlignment="MainAxisAlignment.center">
+            <Text _text="$count.toString()" style="TextStyle(color: Colors.red, fontSize: 16.0)" />
+            <RaisedButton onPressed="() {sink.add($count + 1);}">
+                <Text _text="'Count Up'" />
+            </RaisedButton>
+        </Column>
+    </Center>
+</layout>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout>
+    <data>
+        <import package="package:flutter/material.dart"/>
+    </data>
+
+    <Row>
+        <Text
+            _text="'A'"
+            flex="1"/>
+        <Text
+            _text="'B'"
+            flex="2"/>
+        <Text
+            _text="'C'"
+            flex="0"/>
+    </Row>
+</layout>
