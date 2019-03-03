@@ -95,6 +95,12 @@ void _removeRequiredStreamRecursive(Widget w, String streamName) {
 
 String _convertImport(Layout layout) {
   var out = "";
+  List<Import> imports = layout.imports;
+  //add material as default
+  if (imports.length == 0) {
+    imports.add(Import("package:flutter/material.dart"));
+  }
+
   bool hasAsync = false;
   for (var i in layout.imports) {
     out += "import '" + i.pkgName + "';\n";

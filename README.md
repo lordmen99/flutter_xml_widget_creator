@@ -4,9 +4,9 @@
 
 Create a building Widget function from XML, similar to Android Layout XML.
 
-> Caution: This project is experimental.<br>
-> Especially, error checking is not enough when parsing.<br>
-> and it's hard to recognize what parsing-error is.
+> Notice: This project is experimental.<br>
+> Especially, error checking is not enough when xml parsing.<br>
+> and it's hard to understand what parsing-error is.
 
 This tool doesn't inflate xml dynamically, only converts xml to dart.  
 And the created-code is similar to `Stateless Function Component` (in React).
@@ -52,7 +52,6 @@ Widget buildCounterWidget({
 ## Motivation
 
 * It's difficult to recognize *close-position* in dart code (for me). 
-  * It makes me have difficulty to change tree structure.
   * XML-format is more easier to do this.
   * And I'm familier with writing layout in XML, so I want to use XML.
 * Reducing template code when using 'StreamBuilder'
@@ -86,13 +85,14 @@ Similar to Android-DataBinding-XML.
 * `<layout>` :  root element
 * `<data>` : declare using package, streams and other variables
   * `<import pakage=PKGNAME />` : import packages
+  * If no import tags, add material package as default.
   * `<stream name=NAME type=TYPE initialData=DATA />` : declare a stream used in widgets
   * `<var name=NAME type=TYPE />` : declare other variables(callback, constant-value, etc...)
 * widget tree(only one widget)
 
 In Widget tree, 
 
-* `tag-name` converted to ClassName (must start with Upper-case)
+* `tag-name` converted to Class-Name (must start with Upper-case)
 * each `attribute-name` converted to constructor-parameter.
 * each `attribute-value` converted as raw dart code.
   * So if you want to use string-literal, you need to wrap it with single-qoute.
@@ -107,7 +107,6 @@ In Widget tree,
   * if true, the children-trees are declared as *children: []*
   * if false, the child-tree is declared as *child:*
   * In xml, it is unable to understand whether child-tree is *children* or *child*.
-  * So I created this attribute.
   * In some default widget, this tool uses `children` as default. such as `Row` or `Column`.
 * `$` syntax
   * when you want to use stream value, add `$` before each stream-name.
@@ -152,8 +151,9 @@ To reduce widget-nesting, this tool supports some special attributes.
   * padding="1 2" : vertical, horizontal
   * padding="1 2 3" : top, horizontal, bottom
   * padding="1 2 3 4" : top, right, bottom, left
+  * takes double value
 * `flex` : wrap widget with `Expanded`
-  * value takes integer
+  * takes integer value
 
 example
 
