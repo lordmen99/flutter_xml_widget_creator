@@ -1,6 +1,5 @@
 //Created from xml
 import 'package:flutter/material.dart';
-import 'dart:async';
 
 Widget buildPadding({
   Key key,

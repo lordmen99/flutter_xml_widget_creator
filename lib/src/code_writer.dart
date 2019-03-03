@@ -108,7 +108,7 @@ String _convertImport(Layout layout) {
       hasAsync = true;
     }
   }
-  if (!hasAsync) {
+  if (!hasAsync && layout.streams.length > 0) {
     out += "import 'dart:async';\n";
   }
   return out;
